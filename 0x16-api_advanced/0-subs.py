@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-"""Contains a function that returns number of subscribers """
+"""my first Reddit API request"""
 import requests
 
-
 def number_of_subscribers(subreddit):
-    """queries the Reddit API and returns the number of subscribers """
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {'User-Agent': 'Mozilla/5.0'}
+    """the function return the number of subcribers"""
+    url = 'https://www.reddit.com/r/{}/.json'.format(subreddit)
+    header = {'User-Agent': 'Reddit API test'}
 
-    try:
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            data = response.json()
-            subscribers = data.get('data').get('subscribers')
-            return int(subscribers)
-        else:
-            return 0
-    except requests.exceptions.RequestException:
+    response = requests.get(url, headers=header, allow_redirects=False)
+    dict = response.json()
+    if dict.get("error", 200) == 404:
         return 0
+    return dict.get("data").get("children")[0].get("data")\
+        .get("subreddit_subscribers")
