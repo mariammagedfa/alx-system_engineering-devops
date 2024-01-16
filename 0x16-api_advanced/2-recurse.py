@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for task 2"""
+"""A python script that make a recursive call to query the redit API"""
 
 
 def recurse(subreddit, hot_list=[], count=0, after=None):

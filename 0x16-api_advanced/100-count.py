@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for task 3"""
+"""Request the top ten hot posts"""
 
 
 def count_words(subreddit, word_list, word_count={}, after=None):

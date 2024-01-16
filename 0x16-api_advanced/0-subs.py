@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for task 0"""
+"""A python script that gets the number of subscribers from a subreddit"""
 
 
 def number_of_subscribers(subreddit):
